@@ -9,7 +9,7 @@ load_dotenv()
 
 faqs_path = Path(__file__).parent /"resources/faq_data.csv"
 chroma_client = chromadb.Client()
-collction_name_faq = 'faqs'
+collction_name_faq = 'fcaqs'
 groq_client = Groq()
 
 ef = embedding_functions.SentenceTransformerEmbeddingFunction(
@@ -77,7 +77,7 @@ def generate_answer(query,context):
 
 if __name__ == "__main__":
     ingest_faq_data(faqs_path)
-    query = "Whats i buy products using cash ?"
+    query = "Can I buy products using cash ?"
     # result = get_relevant_qa(query)
     answer = faq_chain(query)
     print(answer)

@@ -17,6 +17,7 @@ faq = Route(
         "What happens if I receive a defective product?",
         "Do you offer replacements for faulty items?",
         "How to claim warranty on a damaged product?",
+        "what is your refund policy?"
     ]
 )
 
@@ -31,11 +32,31 @@ sql = Route(
     ]
 )
 
-routes = [faq, sql]
+smalltalk = Route(
+    name='smalltalk',
+    utterances=[
+        "How are you?",
+        "What is your name?",
+        "Are you a robot?",
+        "What are you?",
+        "What do you do?",
+        "Tell me a joke.",
+        "Do you sleep?",
+        "What’s the weather like?",
+        "Do you like music?",
+        "How old are you?",
+        "What should I eat today?",
+        "Do you like pizza?",
+        "How do you feel today?"
+    ]
+)
+
+routes = [faq, sql, smalltalk]
 
 router = SemanticRouter(encoder=encoder, routes=routes, auto_sync='local')
 
 if __name__ == "__main__":
     print(router("What is the return policy of the products?").name)
     print(router("What is the price of puma running shoes?").name)
+    print(router("How are you ?").name)
     
